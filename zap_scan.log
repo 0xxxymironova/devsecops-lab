@@ -1,0 +1,167 @@
+Running with gitlab-runner 18.11.3 (ad1797b3)
+  on docker hiXIqFkrE, system ID: r_CMlrnZS5eUbl
+Preparing the "docker" executor
+00:02
+Using Docker executor with image zaproxy/zap-stable ...
+Using effective pull policy of [always] for container zaproxy/zap-stable
+Pulling docker image zaproxy/zap-stable ...
+Using docker image sha256:8770b23f9e8b49038f413cb2b10c58c901e5b6717be221a22b1bcab5c9771b8a for zaproxy/zap-stable with digest zaproxy/zap-stable@sha256:8770b23f9e8b49038f413cb2b10c58c901e5b6717be221a22b1bcab5c9771b8a ...
+Preparing environment
+00:01
+Using effective pull policy of [always] for container sha256:571952e633d345c74af6458eda2948da99cf5315ce9017e1cab22a4c2226887c
+Running on runner-hixiqfkre-project-1-concurrent-0 via e18ee6b6dacb...
+Getting source from Git repository
+00:02
+Gitaly correlation ID: 01KRSD38BN4H8VRFF3NHNMJD6F
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /builds/root/nodegoat-devsecops/.git/
+Created fresh repository.
+Checking out 2683d164 as detached HEAD (ref is master)...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+00:45
+Using effective pull policy of [always] for container zaproxy/zap-stable
+Using docker image sha256:8770b23f9e8b49038f413cb2b10c58c901e5b6717be221a22b1bcab5c9771b8a for zaproxy/zap-stable with digest zaproxy/zap-stable@sha256:8770b23f9e8b49038f413cb2b10c58c901e5b6717be221a22b1bcab5c9771b8a ...
+$ zap-baseline.py -t http://nodegoat:4000
+Using the Automation Framework
+Total of 52 URLs
+PASS: In Page Banner Information Leak [10009]
+PASS: Cookie No HttpOnly Flag [10010]
+PASS: Cookie Without Secure Flag [10011]
+PASS: Re-examine Cache-control Directives [10015]
+PASS: Content-Type Header Missing [10019]
+PASS: Information Disclosure - Debug Error Messages [10023]
+PASS: Information Disclosure - Sensitive Information in URL [10024]
+PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]
+PASS: HTTP Parameter Override [10026]
+PASS: Off-site Redirect [10028]
+PASS: Cookie Poisoning [10029]
+PASS: User Controllable Charset [10030]
+PASS: User Controllable HTML Element Attribute (Potential XSS) [10031]
+PASS: Viewstate [10032]
+PASS: Directory Browsing [10033]
+PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]
+PASS: Strict-Transport-Security Header [10035]
+PASS: HTTP Server Response Header [10036]
+PASS: X-Backend-Server Header Information Leak [10039]
+PASS: Secure Pages Include Mixed Content [10040]
+PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]
+PASS: HTTPS to HTTP Insecure Transition in Form Post [10042]
+PASS: User Controllable JavaScript Event (XSS) [10043]
+PASS: Big Redirect Detected (Potential Sensitive Information Leak) [10044]
+PASS: Retrieved from Cache [10050]
+PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]
+PASS: X-Debug-Token Information Leak [10056]
+PASS: Username Hash Found [10057]
+PASS: X-AspNet-Version Response Header [10061]
+PASS: PII Disclosure [10062]
+PASS: Timestamp Disclosure [10096]
+PASS: Hash Disclosure [10097]
+PASS: Cross-Domain Misconfiguration [10098]
+PASS: Weak Authentication Method [10105]
+PASS: Reverse Tabnabbing [10108]
+PASS: Verification Request Identified [10113]
+PASS: Script Served From Malicious Domain (polyfill) [10115]
+PASS: ZAP is Out of Date [10116]
+PASS: Absence of Anti-CSRF Tokens [10202]
+PASS: Private IP Disclosure [2]
+PASS: Session ID in URL Rewrite [3]
+PASS: Script Passive Scan Rules [50001]
+PASS: Stats Passive Scan Rule [50003]
+PASS: Insecure JSF ViewState [90001]
+PASS: Java Serialization Object [90002]
+PASS: Sub Resource Integrity Attribute Missing [90003]
+PASS: Charset Mismatch [90011]
+PASS: WSDL File Detection [90030]
+PASS: Loosely Scoped Cookie [90033]
+WARN-NEW: Vulnerable JS Library [10003] x 2 
+	http://nodegoat:4000/vendor/bootstrap/bootstrap.js (200 OK)
+	http://nodegoat:4000/vendor/jquery.min.js (200 OK)
+WARN-NEW: Cross-Domain JavaScript Source File Inclusion [10017] x 5 
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+	http://nodegoat:4000/signup (200 OK)
+	http://nodegoat:4000/tutorial/a3 (200 OK)
+	http://nodegoat:4000/tutorial/a5 (200 OK)
+WARN-NEW: Missing Anti-clickjacking Header [10020] x 5 
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+	http://nodegoat:4000/signup (200 OK)
+	http://nodegoat:4000/tutorial/a3 (200 OK)
+	http://nodegoat:4000/tutorial/a5 (200 OK)
+WARN-NEW: X-Content-Type-Options Header Missing [10021] x 5 
+	http://nodegoat:4000/images/owasplogo.png (200 OK)
+	http://nodegoat:4000/signup (200 OK)
+	http://nodegoat:4000/vendor/bootstrap/bootstrap.css (200 OK)
+	http://nodegoat:4000/vendor/theme/font-awesome/css/font-awesome.min.css (200 OK)
+	http://nodegoat:4000/vendor/theme/sb-admin.css (200 OK)
+WARN-NEW: Information Disclosure - Suspicious Comments [10027] x 10 
+	http://nodegoat:4000/tutorial (200 OK)
+	http://nodegoat:4000/tutorial (200 OK)
+	http://nodegoat:4000/tutorial (200 OK)
+	http://nodegoat:4000/tutorial/a1 (200 OK)
+	http://nodegoat:4000/tutorial/a1 (200 OK)
+WARN-NEW: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037] x 5 
+	http://nodegoat:4000 (302 Found)
+	http://nodegoat:4000/images/owasplogo.png (200 OK)
+	http://nodegoat:4000/sitemap.xml (404 Not Found)
+	http://nodegoat:4000/vendor/theme/font-awesome/css/font-awesome.min.css (200 OK)
+	http://nodegoat:4000/vendor/theme/sb-admin.css (200 OK)
+WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 5 
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+	http://nodegoat:4000/signup (200 OK)
+	http://nodegoat:4000/tutorial/a3 (200 OK)
+	http://nodegoat:4000/tutorial/a5 (200 OK)
+WARN-NEW: Non-Storable Content [10049] x 12 
+	http://nodegoat:4000 (302 Found)
+	http://nodegoat:4000/ (302 Found)
+	http://nodegoat:4000/login (500 Internal Server Error)
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+WARN-NEW: Cookie without SameSite Attribute [10054] x 3 
+	http://nodegoat:4000 (302 Found)
+	http://nodegoat:4000/robots.txt (404 Not Found)
+	http://nodegoat:4000/sitemap.xml (404 Not Found)
+WARN-NEW: CSP: Failure to Define Directive with No Fallback [10055] x 5 
+	http://nodegoat:4000/allocations/ (404 Not Found)
+	http://nodegoat:4000/h2 (404 Not Found)
+	http://nodegoat:4000/robots.txt (404 Not Found)
+	http://nodegoat:4000/server.js (404 Not Found)
+	http://nodegoat:4000/sitemap.xml (404 Not Found)
+WARN-NEW: Permissions Policy Header Not Set [10063] x 5 
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/robots.txt (404 Not Found)
+	http://nodegoat:4000/signup (200 OK)
+	http://nodegoat:4000/sitemap.xml (404 Not Found)
+	http://nodegoat:4000/login (500 Internal Server Error)
+WARN-NEW: Source Code Disclosure - SQL [10099] x 2 
+	http://nodegoat:4000/tutorial (200 OK)
+	http://nodegoat:4000/tutorial/a1 (200 OK)
+WARN-NEW: Modern Web Application [10109] x 5 
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+	http://nodegoat:4000/tutorial/a3 (200 OK)
+	http://nodegoat:4000/tutorial/a5 (200 OK)
+	http://nodegoat:4000/tutorial/ssrf (200 OK)
+WARN-NEW: Dangerous JS Functions [10110] x 2 
+	http://nodegoat:4000/tutorial (200 OK)
+	http://nodegoat:4000/tutorial/a1 (200 OK)
+WARN-NEW: Authentication Request Identified [10111] x 1 
+	http://nodegoat:4000/login (500 Internal Server Error)
+WARN-NEW: Session Management Response Identified [10112] x 2 
+	http://nodegoat:4000 (302 Found)
+	http://nodegoat:4000/sitemap.xml (404 Not Found)
+WARN-NEW: Cross-Origin-Embedder-Policy Header Missing or Invalid [90004] x 11 
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+	http://nodegoat:4000/signup (200 OK)
+	http://nodegoat:4000 (200 OK)
+	http://nodegoat:4000/login (200 OK)
+WARN-NEW: Application Error Disclosure [90022] x 2 
+	http://nodegoat:4000/login (500 Internal Server Error)
+	http://nodegoat:4000/signup (500 Internal Server Error)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 18	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 49
+Cleaning up project directory and file based variables
+00:00
+ERROR: Job failed: exit code 1

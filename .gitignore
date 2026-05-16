@@ -1,0 +1,10 @@
+# Игнорируем тяжелую базу данных
+nodegoat-devsecops-ready/gitlab/data/
+
+# Игнорируем логи (именно они сейчас выдали ошибку)
+nodegoat-devsecops-ready/gitlab/logs/
+
+# Игнорируем секреты, ключи и пароли из папки config
+nodegoat-devsecops-ready/gitlab/config/ssh_host_*
+nodegoat-devsecops-ready/gitlab/config/*_password
+nodegoat-devsecops-ready/gitlab/config/gitlab-secrets.json
