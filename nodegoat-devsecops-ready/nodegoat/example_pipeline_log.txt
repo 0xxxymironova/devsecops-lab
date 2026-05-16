@@ -1,0 +1,11 @@
+Running with gitlab-runner 17.0
+
+build SUCCESS
+
+semgrep_scan FAILED
+
+Potential NoSQL Injection in MongoDB query
+
+zap_scan FAILED
+
+ZAP FOUND VULNERABILITIES

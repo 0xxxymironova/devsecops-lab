@@ -1,0 +1,16 @@
+rules:
+  - id: mongodb-nosqli
+    pattern-either:
+      - pattern: |
+          $COLLECTION.find($QUERY)
+      - pattern: |
+          $COLLECTION.findOne($QUERY)
+      - pattern: |
+          $COLLECTION.update($QUERY, ...)
+      - pattern: |
+          $COLLECTION.remove($QUERY)
+
+    message: Potential NoSQL Injection in MongoDB query
+    languages:
+      - javascript
+    severity: ERROR

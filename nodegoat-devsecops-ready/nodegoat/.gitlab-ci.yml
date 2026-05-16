@@ -1,0 +1,43 @@
+stages:
+  - build
+  - sast
+  - dast
+  - quality_gate
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  tags:
+    - docker
+  script:
+    - docker build -t nodegoat .
+
+semgrep_scan:
+  stage: sast
+  image: returntocorp/semgrep
+  tags:
+    - docker
+  script:
+    - semgrep --config semgrep/nosqli.yaml . --error
+  allow_failure: true
+
+zap_scan:
+  stage: dast
+  image: zaproxy/zap-stable
+  tags:
+    - docker
+  when: always
+  script:
+    - zap-baseline.py -t http://nodegoat:4000
+  allow_failure: true
+
+quality_gate:
+  stage: quality_gate
+  tags:
+    - docker
+  when: always
+  script:
+    - echo "Checking security findings..."
+    - exit 1
